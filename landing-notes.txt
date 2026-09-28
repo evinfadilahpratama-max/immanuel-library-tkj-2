@@ -1,0 +1,3 @@
+Memisahkan header dan footer menjadi component membuat kode lebih rapi dan tidak perlu menulis kode yang sama berulang kali. Jika ada perubahan pada header atau footer, cukup mengubah satu file component saja. Component juga membuat struktur halaman lebih mudah dikelola dan digunakan kembali.
+
+Pada halaman admin, masalah yang sama terdapat pada sidebar dan topbar. Sidebar dan topbar ditulis berulang-ulang pada banyak halaman sehingga terjadi duplikasi kode. Karena itu, sidebar dan topbar dipisahkan menjadi component agar dapat digunakan bersama oleh seluruh halaman admin.
