@@ -7,22 +7,7 @@
   <link rel="stylesheet" href="../../styles/books/show.css">
 </head>
 <body>
-  <?php
 
-require_once '../../repositories/book-repository.php';
-
-$book = getBook();
-
-$pageTitle = "Detail Buku";
-$pageSubtitle = "Informasi detail buku";
-?>
-  <div class="app-shell">
-  
-  <?php include '../../components/admin/sidebar.php'; ?>
-
-    <main class="app-main">
-
-    <?php include '../../components/admin/sidebar.php'; ?>
     
       <div class="app-content">
         <div class="detail-grid">
