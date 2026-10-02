@@ -43,13 +43,16 @@ $books = [
   ],
 ];
 
-$book = [
-  "id" => 5,
-  "title" => "Antologi Rasa Nusantara",
-  "isbn" => "978-602-1234-56-7",
-  "year" => 2021,
-  "stock" => 4,
-  "category" => "Fiksi",
-  "description" => "Kumpulan puisi dan cerita pendek dari berbagai penulis Nusantara.",
-  "authors" => ["Pramoedya Ananta Toer", "Sapardi Djoko Damono"],
-];
+function getBook()
+{
+    return [
+        "id" => 5,
+        "title" => "Antologi Rasa Nusantara",
+        "isbn" => "978-602-1234-56-7",
+        "year" => 2021,
+        "stock" => 4,
+        "category" => "Fiksi",
+        "description" => "Kumpulan puisi dan cerita pendek dari berbagai penulis Nusantara.",
+        "authors" => ["Pramoedya Ananta Toer", "Sapardi Djoko Damono"],
+    ];
+}
