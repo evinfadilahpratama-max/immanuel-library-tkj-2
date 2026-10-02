@@ -23,14 +23,14 @@
   ];
   ?>
 
-<?php
+  <?php
 $pageTitle = "Profil Saya";
 $pageSubtitle = "Kelola informasi profil Anda";
 ?>
-
+  
   <div class="app-shell">
   
-  <?php include '../../components/admin/sidebar.php'; ?>
+<?php include '../../components/admin/sidebar.php'; ?>
 
     <main class="app-main">
     

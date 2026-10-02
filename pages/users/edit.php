@@ -27,7 +27,7 @@ $pageSubtitle = "Perbarui data pengguna";
 
     <main class="app-main">
     
-    <?php include '../../components/admin/sidebar.php'; ?>
+    <?php include '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
         <form method="" action="">
