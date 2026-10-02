@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="../../styles/books/show.css">
 </head>
 <body>
-  <?php
 
+<?php
 require_once '../../repositories/book-repository.php';
 
 $book = getBook();
 
 $pageTitle = "Detail Buku";
-$pageSubtitle = "Informasi detail buku";
+$pageSubtitle = "Informasi lengkap mengenai buku";
 ?>
   <div class="app-shell">
   
