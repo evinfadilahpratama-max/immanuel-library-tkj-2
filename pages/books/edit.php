@@ -1,10 +1,14 @@
 <?php
 
 require_once '../../repositories/book-repository.php';
+require_once '../../repositories/category-repository.php';
+require_once '../../repositories/author-repository.php';
 
-$book = getBook();
+$book       = getBook();
+$categories = getCategories();
+$authors    = getAuthors();
 
-$pageTitle = "Edit Buku";
+$pageTitle    = "Edit Buku";
 $pageSubtitle = "Ubah informasi buku";
 
 ?>
@@ -73,16 +77,20 @@ $pageSubtitle = "Ubah informasi buku";
                 name="stock"
                 value="<?= $book['stock'] ?>"
               >
+              
             </div>
-            <div class="form-group">
+            <<div class="form-group">
               <label for="category">Kategori</label>
-              <input
-                type="text"
-                id="category"
-                name="category"
-                value="<?= $book['category'] ?>"
-              >
-            </div>
+              <select name="category" id="category">
+              <?php foreach ($categories as $category): ?>
+              <option value="<?= $category['name'] ?>"
+              <?= $category['name'] === $book['category'] ? 'selected' : '' ?>>
+              <?= $category['name'] ?>
+            </option>
+           <?php endforeach; ?>
+           </select>
+           </div>
+           
             <div class="form-group">
               <label for="description">Deskripsi</label>
               <textarea
@@ -96,17 +104,18 @@ $pageSubtitle = "Ubah informasi buku";
 
 
             <div class="form-group">
-              <label>Penulis</label>
-              <?php foreach ($book['authors'] as $author): ?>
-                <div>
-                  <input
-                    type="text"
-                    name="authors[]"
-                    value="<?= $author ?>"
-                  >
-                </div>
-              <?php endforeach; ?>
-            </div>
+            <label>Penulis</label>
+        <div class="checkbox-grid">
+           <?php foreach ($authors as $author): ?>
+            <label class="checkbox-item">
+            <input type="checkbox" name="authors[]"
+            value="<?= $author['name'] ?>"
+             <?= in_array($author['name'], $book['authors']) ? 'checked' : '' ?>>
+             <?= $author['name'] ?>
+             </label>
+             <?php endforeach; ?>
+          </div>
+         </div>
            
             <div class="form-actions">
               <a href="index.php" class="btn btn-outline">
