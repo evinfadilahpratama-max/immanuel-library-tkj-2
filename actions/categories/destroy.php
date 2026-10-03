@@ -1,2 +1,8 @@
 <?php
-if (isset($_GET['id'])) { echo "Kategori dengan id " . $_GET['id'] . " berhasil diterima untuk dihapus."; } else { echo "Id kategori belum diterima."; }
+
+if (isset($_GET["id"])) {
+
+    $id = $_GET["id"];
+
+    echo "Kategori dengan ID " . $id . " berhasil dihapus.";
+}
