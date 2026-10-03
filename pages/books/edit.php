@@ -1,97 +1,121 @@
+<?php
+
+require_once '../../repositories/book-repository.php';
+
+$book = getBook();
+
+$pageTitle = "Edit Buku";
+$pageSubtitle = "Ubah informasi buku";
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Edit Buku - Perpustakaan Digital</title>
+
   <link rel="stylesheet" href="../../styles/books/edit.css">
 </head>
+
 <body>
-  <?php
-  $categories = ["Fiksi", "Sains", "Sejarah", "Teknologi"];
-  $authors = ["Andrea Hirata", "Tere Liye", "J.K. Rowling", "Pramoedya Ananta Toer", "Sapardi Djoko Damono"];
 
-  $book = [
-      "id" => 5, "title" => "Antologi Rasa Nusantara", "isbn" => "978-602-1234-56-7",
-      "year" => 2021, "stock" => 4, "category_id" => 1,
-      "description" => "Kumpulan puisi dan cerita pendek dari berbagai penulis Nusantara.",
-      "author_ids" => [4, 5],
-  ];
-  ?>
-
-<?php
-$pageTitle = "Edit Buku";
-$pageSubtitle = "Perbarui data buku, kategori, dan penulis";
-?>
 
   <div class="app-shell">
-  
-  <?php include '../../components/admin/sidebar.php'; ?>
+
+    <?php include '../../components/admin/sidebar.php'; ?>
 
     <main class="app-main">
-    
-    <?php include '../../components/admin/topbar.php'; ?>
+
+      <?php include '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
-        <form method="" action="">
-          <input type="hidden" name="id" value="<?= $book['id'] ?>">
-          <div class="form-card" style="margin-bottom:20px;">
-            <div class="form-section-title">Data Buku</div>
+
+        <div class="form-card">
+          <form method="POST" action="../../actions/books/update.php">
             <div class="form-group">
               <label for="title">Judul Buku</label>
-              <input type="text" id="title" name="title" value="<?= $book['title'] ?>">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value="<?= $book['title'] ?>"
+              >
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="isbn">ISBN</label>
-                <input type="text" id="isbn" name="isbn" value="<?= $book['isbn'] ?>">
-              </div>
-              <div class="form-group">
-                <label for="year">Tahun Terbit</label>
-                <input type="number" id="year" name="year" value="<?= $book['year'] ?>">
-              </div>
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              <input
+                type="text"
+                id="isbn"
+                name="isbn"
+                value="<?= $book['isbn'] ?>"
+              >
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="stock">Jumlah Stok</label>
-                <input type="number" id="stock" name="stock" value="<?= $book['stock'] ?>">
-              </div>
-              <div class="form-group">
-                <label for="category_id">Kategori</label>
-                <select id="category_id" name="category_id">
-                  <?php foreach ($categories as $index => $category): ?>
-                    <option value="<?= $index + 1 ?>" <?= ($index + 1) === $book['category_id'] ? 'selected' : '' ?>><?= $category ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
+            <div class="form-group">
+              <label for="year">Tahun Terbit</label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                value="<?= $book['year'] ?>"
+              >
+            </div>
+            <div class="form-group">
+              <label for="stock">Stok</label>
+              <input
+                type="number"
+                id="stock"
+                name="stock"
+                value="<?= $book['stock'] ?>"
+              >
+            </div>
+            <div class="form-group">
+              <label for="category">Kategori</label>
+              <input
+                type="text"
+                id="category"
+                name="category"
+                value="<?= $book['category'] ?>"
+              >
             </div>
             <div class="form-group">
               <label for="description">Deskripsi</label>
-              <textarea id="description" name="description" rows="3"><?= $book['description'] ?></textarea>
+              <textarea
+                id="description"
+                name="description"
+                rows="5"
+              ><?= $book['description'] ?></textarea>
             </div>
-          </div>
 
-          <div class="form-card">
-            <div class="form-section-title">Penulis Buku</div>
+
+            
+
             <div class="form-group">
-              <label>Pilih Penulis (bisa lebih dari satu)</label>
-              <div class="checkbox-grid">
-                <?php foreach ($authors as $index => $authorName): ?>
-                  <?php $authorId = $index + 1; ?>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="author_ids[]" value="<?= $authorId ?>" <?= in_array($authorId, $book['author_ids']) ? 'checked' : '' ?>>
-                    <?= $authorName ?>
-                  </label>
-                <?php endforeach; ?>
-              </div>
+              <label>Penulis</label>
+              <?php foreach ($book['authors'] as $author): ?>
+                <div>
+                  <input
+                    type="text"
+                    name="authors[]"
+                    value="<?= $author ?>"
+                  >
+                </div>
+              <?php endforeach; ?>
             </div>
-
+           
             <div class="form-actions">
-              <a href="index.php" class="btn btn-outline">Batal</a>
-              <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+              <a href="index.php" class="btn btn-outline">
+                Batal
+              </a>
+              <button type="submit" class="btn btn-primary">
+                Simpan Perubahan
+              </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </main>
   </div>
