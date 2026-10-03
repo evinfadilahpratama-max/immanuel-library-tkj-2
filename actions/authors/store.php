@@ -1,2 +1,17 @@
 <?php
-if (isset($_POST['name'], $_POST['bio'])) { print_r($_POST); } else { echo "Data belum lengkap."; }
+
+if (isset($_POST["name"]) && isset($_POST["bio"])) {
+
+  $data = [
+    "name" => $_POST["name"],
+    "bio" => $_POST["bio"],
+  ];
+
+  echo "Data penulis berhasil diterima:";
+
+  echo "<pre>";
+
+  print_r($data);
+
+  echo "</pre>";
+}
