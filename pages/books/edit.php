@@ -21,6 +21,8 @@ $pageSubtitle = "Ubah informasi buku";
   <link rel="stylesheet" href="../../styles/books/edit.css">
 </head>
 
+
+
 <body>
 
 
@@ -91,7 +93,7 @@ $pageSubtitle = "Ubah informasi buku";
             </div>
 
 
-            
+
 
             <div class="form-group">
               <label>Penulis</label>
