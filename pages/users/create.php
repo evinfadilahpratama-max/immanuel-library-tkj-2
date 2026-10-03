@@ -11,6 +11,10 @@
 <?php
 $pageTitle = "Tambah Pengguna";
 $pageSubtitle = "Tambahkan pengguna baru";
+
+require_once '../../repositories/user-repository.php';
+
+$users = getUsers();
 ?>
 
   <div class="app-shell">
@@ -23,7 +27,7 @@ $pageSubtitle = "Tambahkan pengguna baru";
 
 
       <div class="app-content">
-        <form method="" action="">
+        <form method="POST" action="../../actions/users/store.php">
           <div class="form-card">
             <div class="form-section-title">Data Pengguna</div>
             <div class="form-row">

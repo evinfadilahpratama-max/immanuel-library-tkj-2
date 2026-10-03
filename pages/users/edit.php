@@ -19,6 +19,10 @@
 <?php
 $pageTitle = "Edit Pengguna";
 $pageSubtitle = "Perbarui data pengguna";
+
+require_once '../../repositories/user-repository.php';
+
+$users = getUsers();
 ?>
 
   <div class="app-shell">
@@ -30,10 +34,12 @@ $pageSubtitle = "Perbarui data pengguna";
     <?php include '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
-        <form method="" action="">
+        <form method="POST" action="../../actions/users/update.php">
           <input type="hidden" name="id" value="<?= $user['id'] ?>">
+          
           <div class="form-card">
             <div class="form-section-title">Data Pengguna</div>
+            
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
@@ -44,6 +50,12 @@ $pageSubtitle = "Perbarui data pengguna";
                 <input type="email" id="email" name="email" value="<?= $user['email'] ?>">
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="password">Kata Sandi Awal</label>
+              <input type="password" id="password" name="password">
+            </div>
+
             <div class="form-group">
               <label for="role">Role</label>
               <select id="role" name="role">
@@ -56,6 +68,7 @@ $pageSubtitle = "Perbarui data pengguna";
               <a href="index.php" class="btn btn-outline">Batal</a>
               <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
             </div>
+            
           </div>
         </form>
       </div>
