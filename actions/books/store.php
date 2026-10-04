@@ -1,35 +1,34 @@
-PHP
 <?php
 
-if (
-    isset($_POST["title"]) &&
-    isset($_POST["isbn"]) &&
-    isset($_POST["year"]) &&
-    isset($_POST["stock"]) &&
-    isset($_POST["category_id"]) &&
-    isset($_POST["author_ids"]) &&
-    isset($_POST["description"])
-) {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $data = [
-        "title"       => $_POST["title"],
-        "isbn"        => $_POST["isbn"],
-        "year"        => $_POST["year"],
-        "stock"       => $_POST["stock"],
-        "category_id" => $_POST["category_id"],
-        "author_ids"  => $_POST["author_ids"],
-        "description" => $_POST["description"]
-    ];
+    $title = isset($_POST["title"]) ? $_POST["title"] : "";
+    $isbn = isset($_POST["isbn"]) ? $_POST["isbn"] : "";
+    $year = isset($_POST["year"]) ? $_POST["year"] : "";
+    $stock = isset($_POST["stock"]) ? $_POST["stock"] : "";
+    $categoryId = isset($_POST["category_id"]) ? $_POST["category_id"] : "";
+    $authorIds = isset($_POST["author_ids"]) ? $_POST["author_ids"] : [];
+    $description = isset($_POST["description"]) ? $_POST["description"] : "";
 
-    echo "<h2>Data Buku Diterima</h2>";
+    echo "<h1>Data Buku Diterima</h1>";
 
     echo "<pre>";
-    print_r($data);
+
+    print_r([
+        "title" => $title,
+        "isbn" => $isbn,
+        "year" => $year,
+        "stock" => $stock,
+        "category_id" => $categoryId,
+        "author_ids" => $authorIds,
+        "description" => $description
+    ]);
+
     echo "</pre>";
 
-    echo '<br><a href="../../pages/books/create.php">Kembali</a>';
 } else {
-    echo "Tidak ada data buku yang dikirim atau form belum lengkap.";
-}
 
-?>
+    echo "<h1>Permintaan tidak valid.</h1>";
+
+}
+echo '<br><a href="../../pages/books/create.php">Kembali</a>';
