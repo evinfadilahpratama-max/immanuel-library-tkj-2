@@ -1,22 +1,27 @@
- <?php
+<?php
 
-if (
-    isset($_POST["name"]) &&
-    isset($_POST["email"]) &&
-    isset($_POST["password"]) &&
-    isset($_POST["role"])
-) {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $data = [
-        "name" => $_POST["name"],
-        "email" => $_POST["email"],
-        "password" => $_POST["password"],
-        "role" => $_POST["role"]
-    ];
+    $name = isset($_POST["name"]) ? $_POST["name"] : "";
+    $email = isset($_POST["email"]) ? $_POST["email"] : "";
+    $password = isset($_POST["password"]) ? $_POST["password"] : "";
+    $role = isset($_POST["role"]) ? $_POST["role"] : "";
 
-    echo "Data pengguna berhasil diterima:";
+    echo "<h1>Data Pengguna Diterima</h1>";
 
     echo "<pre>";
-    print_r($data);
+
+    print_r([
+        "name" => $name,
+        "email" => $email,
+        "password" => $password,
+        "role" => $role
+    ]);
+
     echo "</pre>";
+
+} else {
+
+    echo "<h1>Permintaan tidak valid.</h1>";
+
 }
