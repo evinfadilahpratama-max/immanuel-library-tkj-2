@@ -1,3 +1,7 @@
+<?php
+require_once '../../repositories/book-repository.php';
+$books = getBooks();
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,30 +14,17 @@
 
 <body>
   <?php
-  $book = [
-    "id" => 1,
-    "title" => "Laskar Pelangi",
-    "category" => "Fiksi",
-    "year" => 2005,
-    "stock" => 12,
-    "authors" => "Andrea Hirata",
-  ];
-  ?> 
-  
-  <?php
-        $pageTitle = "Manajemen Buku";
-        $pageSubtitle = "Kelola data buku, kategori, dan penulis";
-      ?>
-
+    $pageTitle = "Manajemen Buku";
+    $pageSubtitle = "Kelola data buku, kategori, dan penulis";
+  ?>
 
   <div class="app-shell">
     
-      <?php include '../../components/admin/sidebar.php'; ?>
+    <?php include '../../components/admin/sidebar.php'; ?>
 
     <main class="app-main">
 
      <?php include '../../components/admin/topbar.php'; ?>
-
 
       <div class="app-content">
         <div class="toolbar">
@@ -70,6 +61,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach ($books as $book): ?>
               <tr>
                 <td>
                   <div class="cell-primary">
@@ -78,16 +70,19 @@
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
                       </svg></span>
-                    <a href="show.php?id=<?= $book['id'] ?>" style="color:inherit;"><?= $book['title'] ?></a>
+                    <a href="show.php?id=<?= $book['id'] ?>" style="color:inherit;"><?= htmlspecialchars($book['title']) ?></a>
                   </div>
                 </td>
-                <td><span class="badge badge-muted"><?= $book['category'] ?></span></td>
+                <td><span class="badge badge-muted"><?= htmlspecialchars($book['category']) ?></span></td>
                 <td>
                   <div class="chip-list">
-                    <span class="chip"><?= $book['authors'] ?></span>
+                    <?php 
+                      $authorsText = is_array($book['authors']) ? implode(', ', $book['authors']) : $book['authors'];
+                    ?>
+                    <span class="chip"><?= htmlspecialchars($authorsText) ?></span>
                   </div>
                 </td>
-                <td><?= $book['stock'] ?></td>
+                <td><?= htmlspecialchars($book['stock']) ?></td>
                 <td>
                   <div class="cell-actions">
                     <a href="edit.php?id=<?= $book['id'] ?>" class="btn btn-outline btn-sm">Edit</a>
@@ -95,12 +90,12 @@
                        class="btn btn-danger btn-sm"
                        onclick="return confirm('Yakin ingin menghapus buku ini?')"
                      >
-                    
                        Hapus
                     </a>
                   </div>
                 </td>
               </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

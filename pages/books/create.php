@@ -7,12 +7,6 @@
   <link rel="stylesheet" href="../../styles/books/create.css">
 </head>
 <body>
-  <?php
-  
-  $categories = ["Fiksi", "Sains", "Sejarah", "Teknologi"];
-  $authors = ["Andrea Hirata", "Tere Liye", "J.K. Rowling", "Pramoedya Ananta Toer", "Sapardi Djoko Damono"];
-  ?>
-
 <?php
 $pageTitle = "Tambah Buku";
 $pageSubtitle = "Lengkapi data buku, kategori, dan penulis";
@@ -22,18 +16,17 @@ require_once '../../repositories/author-repository.php';
 
 $categories = getCategories();
 $authors = getAuthors();
-
 ?>
 
   <div class="app-shell">
- 
+  
   <?php include '../../components/admin/sidebar.php'; ?>
 
     <main class="app-main">
     
     <?php include '../../components/admin/topbar.php'; ?>
 
-      <<div class="app-content">
+      <div class="app-content">
         <form method="POST" action="">
           <div class="form-card" style="margin-bottom:20px;">
             <div class="form-section-title">Data Buku</div>
