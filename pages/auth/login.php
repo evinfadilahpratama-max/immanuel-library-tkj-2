@@ -17,14 +17,14 @@
       <h1>Selamat Datang Kembali</h1>
       <p class="auth-subtitle">Masuk untuk mengelola koleksi buku perpustakaan.</p>
 
-      <form method="" action="">
+      <form method="POST" action="../../actions/auth/login.php">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="nama@sekolah.sch.id">
+          <input type="email" id="email" name="email" placeholder="nama@sekolah.sch.id" required>
         </div>
         <div class="form-group">
           <label for="password">Kata Sandi</label>
-          <input type="password" id="password" name="password" placeholder="Masukkan kata sandi">
+          <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Masuk</button>
       </form>
