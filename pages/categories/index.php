@@ -54,11 +54,11 @@ $categories = getCategories();
                     <span class="cell-thumb">
                       <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
                     </span>
-                    <?= htmlspecialchars($category['name']) ?>
+                    <?= htmlspecialchars($category['name'] ?? '') ?>
                   </div>
                 </td>
-                <td><?= htmlspecialchars($category['description']) ?></td>
-                <td><span class="badge badge-muted"><?= htmlspecialchars($category['total_books']) ?> buku</span></td>
+                <td><?= htmlspecialchars($category['description'] ?? '') ?></td>
+                <td><span class="badge badge-muted"><?= htmlspecialchars($category['total_books'] ?? 0) ?> buku</span></td>
                 <td>
                   <div class="cell-actions">
                     <a href="edit.php?id=<?= $category['id'] ?>" class="btn btn-outline btn-sm">Edit</a>

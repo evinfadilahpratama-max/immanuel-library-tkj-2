@@ -21,12 +21,12 @@ $pageSubtitle = "Tambahkan kategori buku baru";
     <?php include '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
-        <form method="" action="">
+        <form method="POST" action="../../actions/categories/store.php">
           <div class="form-card">
             <div class="form-section-title">Data Kategori</div>
             <div class="form-group">
               <label for="name">Nama Kategori</label>
-              <input type="text" id="name" name="name" placeholder="Contoh: Fiksi">
+              <input type="text" id="name" name="name" placeholder="Contoh: Fiksi" required>
             </div>
             <div class="form-group">
               <label for="description">Deskripsi</label>
@@ -43,4 +43,4 @@ $pageSubtitle = "Tambahkan kategori buku baru";
     </main>
   </div>
 </body>
-</html>
+</html> 
