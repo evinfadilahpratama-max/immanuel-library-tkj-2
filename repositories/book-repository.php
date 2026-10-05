@@ -70,7 +70,6 @@ function getBook($id = null)
         }
     }
     
-   
     return [
         "id" => 5,
         "title" => "Antologi Rasa Nusantara",

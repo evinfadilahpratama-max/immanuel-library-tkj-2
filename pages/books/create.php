@@ -52,7 +52,7 @@ $authors = getAuthors();
                 <select id="category_id" name="category_id">
                   <?php foreach ($categories as $category): ?>
                     <option value="<?= $category['id'] ?>">
-                      <?= $category['name'] ?>
+                      <?= htmlspecialchars($category['name'] ?? '') ?>
                     </option>
                   <?php endforeach; ?>
                 </select>
@@ -72,7 +72,7 @@ $authors = getAuthors();
                 <?php foreach ($authors as $author): ?>
                   <label class="checkbox-item">
                     <input type="checkbox" name="author_ids[]" value="<?= $author['id'] ?>">
-                    <?= $author['name'] ?>
+                    <?= htmlspecialchars($author['name'] ?? '') ?>
                   </label>
                 <?php endforeach; ?>
               </div>
