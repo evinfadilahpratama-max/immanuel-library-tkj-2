@@ -1,12 +1,12 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["store"])) {
 
     $title = isset($_POST["title"]) ? trim($_POST["title"]) : "";
     $isbn = isset($_POST["isbn"]) ? trim($_POST["isbn"]) : "";
-    $year = isset($_POST["year"]) ? $_POST["year"] : "";
-    $stock = isset($_POST["stock"]) ? $_POST["stock"] : "";
-    $categoryId = isset($_POST["category_id"]) ? $_POST["category_id"] : "";
+    $year = isset($_POST["year"]) ? trim($_POST["year"]) : "";
+    $stock = isset($_POST["stock"]) ? trim($_POST["stock"]) : "";
+    $categoryId = isset($_POST["category_id"]) ? trim($_POST["category_id"]) : "";
     $authorIds = isset($_POST["author_ids"]) ? $_POST["author_ids"] : [];
     $description = isset($_POST["description"]) ? trim($_POST["description"]) : "";
 
@@ -17,7 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "<p><strong>Tahun Terbit:</strong> " . htmlspecialchars($year) . "</p>";
     echo "<p><strong>Jumlah Stok:</strong> " . htmlspecialchars($stock) . "</p>";
     echo "<p><strong>ID Kategori:</strong> " . htmlspecialchars($categoryId) . "</p>";
-    echo "<p><strong>ID Penulis (author_ids):</strong> " . (empty($authorIds) ? "Tidak ada penulis dipilih" : implode(", ", $authorIds)) . "</p>";
+   
+    $authorDisplay = empty($authorIds) ? "Tidak ada penulis dipilih" : implode(", ", $authorIds);
+    echo "<p><strong>ID Penulis (author_ids):</strong> " . htmlspecialchars($authorDisplay) . "</p>";
+    
     echo "<p><strong>Deskripsi:</strong> " . nl2br(htmlspecialchars($description)) . "</p>";
     echo "<hr>";
 

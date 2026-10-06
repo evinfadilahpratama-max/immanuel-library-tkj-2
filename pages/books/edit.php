@@ -127,7 +127,7 @@ $pageSubtitle = "Ubah informasi buku";
               <a href="index.php" class="btn btn-outline">
                 Batal
               </a>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" name="update" class="btn btn-primary">
                 Simpan Perubahan
               </button>
             </div>
