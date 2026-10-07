@@ -1,17 +1,25 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["store"])) {
 
-if (isset($_POST["name"]) && isset($_POST["bio"])) {
+    $name = isset($_POST["name"]) ? $_POST["name"] : "";
+    $bio = isset($_POST["bio"]) ? $_POST["bio"] : "";
 
-  $data = [
-    "name" => $_POST["name"],
-    "bio" => $_POST["bio"],
-  ];
+    echo "<h1>Data Penulis Diterima</h1>";
 
-  echo "Data penulis berhasil diterima:";
+    echo "<pre>";
 
-  echo "<pre>";
+    print_r([
+        "name" => $name,
+        "bio" => $bio
+    ]);
 
-  print_r($data);
+    echo "</pre>";
 
-  echo "</pre>";
+    echo '<br><a href="../../pages/authors/create.php">Kembali</a>';
+
+} else {
+
+    echo "<h1>Permintaan tidak valid.</h1>";
+
+    echo '<br><a href="../../pages/authors/create.php">Kembali</a>';
 }
