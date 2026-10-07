@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["store"])) {
 
     $name = isset($_POST["name"]) ? $_POST["name"] : "";
     $email = isset($_POST["email"]) ? $_POST["email"] : "";
@@ -20,8 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     echo "</pre>";
 
+    echo '<br><a href="../../pages/users/create.php">Kembali</a>';
+
 } else {
 
     echo "<h1>Permintaan tidak valid.</h1>";
 
+    echo '<br><a href="../../pages/users/create.php">Kembali</a>';
 }

@@ -25,7 +25,6 @@ $users = getUsers();
     
     <?php include '../../components/admin/topbar.php'; ?>
 
-
       <div class="app-content">
         <form method="POST" action="../../actions/users/store.php">
           <div class="form-card">
@@ -56,7 +55,12 @@ $users = getUsers();
 
             <div class="form-actions">
               <a href="index.php" class="btn btn-outline">Batal</a>
-              <button type="submit" class="btn btn-primary">Simpan Pengguna</button>
+              <button
+                type="submit"
+                name="store"
+                class="btn btn-primary">
+                Simpan Pengguna
+              </button>
             </div>
           </div>
         </form>

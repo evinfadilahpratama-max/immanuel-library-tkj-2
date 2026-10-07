@@ -67,7 +67,7 @@ $pageSubtitle = "Perbarui data dan role pengguna";
                   type="text"
                   id="name"
                   name="name"
-                  value="<?= $user['name'] ?>">
+                  value="<?= htmlspecialchars($user['name']) ?>">
 
               </div>
 
@@ -81,7 +81,7 @@ $pageSubtitle = "Perbarui data dan role pengguna";
                   type="email"
                   id="email"
                   name="email"
-                  value="<?= $user['email'] ?>">
+                  value="<?= htmlspecialchars($user['email']) ?>">
 
               </div>
 
@@ -136,6 +136,7 @@ $pageSubtitle = "Perbarui data dan role pengguna";
 
               <button
                 type="submit"
+                name="update"
                 class="btn btn-primary">
                 Simpan Perubahan
               </button>

@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update"])) {
 
     $id = isset($_POST["id"]) ? $_POST["id"] : "";
     $name = isset($_POST["name"]) ? $_POST["name"] : "";
@@ -22,8 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     echo "</pre>";
 
+    echo '<br><a href="../../pages/users/index.php">Kembali</a>';
+
 } else {
 
     echo "<h1>Permintaan tidak valid.</h1>";
 
+    echo '<br><a href="../../pages/users/edit.php">Kembali</a>';
 }
