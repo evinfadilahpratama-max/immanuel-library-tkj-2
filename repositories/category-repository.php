@@ -6,22 +6,26 @@ function getCategories()
         [
             "id" => 1,
             "name" => "Fiksi",
-            "description" => "Buku cerita dan karya imajinatif."
+            "description" => "Buku cerita dan karya imajinatif.",
+            "total_books" => 12
         ],
         [
             "id" => 2,
             "name" => "Non-Fiksi",
-            "description" => "Buku berdasarkan fakta dan informasi nyata."
+            "description" => "Buku berdasarkan fakta dan informasi nyata.",
+            "total_books" => 8
         ],
         [
             "id" => 3,
             "name" => "Teknologi",
-            "description" => "Buku tentang teknologi dan komputer."
+            "description" => "Buku tentang teknologi dan komputer.",
+            "total_books" => 15
         ],
         [
             "id" => 4,
             "name" => "Sejarah",
-            "description" => "Buku tentang peristiwa sejarah."
+            "description" => "Buku tentang peristiwa sejarah.",
+            "total_books" => 5
         ]
     ];
 
@@ -33,8 +37,9 @@ function getCategory()
     $category = [
         "id" => 1,
         "name" => "Fiksi",
-        "description" => "Buku cerita dan karya imajinatif."
+        "description" => "Buku cerita dan karya imajinatif.",
+        "total_books" => 12
     ];
 
     return $category;
-}   
+}

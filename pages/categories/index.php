@@ -25,6 +25,14 @@ $categories = getCategories();
       <?php include '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+
+        <!-- Notifikasi Pesan Berhasil Hapus -->
+        <?php if (isset($_GET["id"])): ?>
+          <div style="background: #e6f4ea; color: #137333; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #ceead6;">
+            Kategori dengan ID <?= htmlspecialchars($_GET["id"]) ?> berhasil dihapus.
+          </div>
+        <?php endif; ?>
+
         <div class="toolbar">
           <form method="GET" action="" class="toolbar-filters">
             <div class="search-box">
