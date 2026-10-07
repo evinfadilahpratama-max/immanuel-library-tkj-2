@@ -70,7 +70,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
                   type="text"
                   id="name"
                   name="name"
-                  value="<?= $user['name'] ?>">
+                  value="<?= htmlspecialchars($user['name']) ?>">
 
               </div>
 
@@ -84,7 +84,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
                   type="email"
                   id="email"
                   name="email"
-                  value="<?= $user['email'] ?>">
+                  value="<?= htmlspecialchars($user['email']) ?>">
 
               </div>
 
@@ -125,7 +125,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
                 type="text"
                 id="phone"
                 name="phone"
-                value="<?= $profile['phone'] ?>">
+                value="<?= htmlspecialchars($profile['phone'] ?? '') ?>">
 
             </div>
 
@@ -139,7 +139,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
                 type="text"
                 id="address"
                 name="address"
-                value="<?= $profile['address'] ?>">
+                value="<?= htmlspecialchars($profile['address'] ?? '') ?>">
 
             </div>
 
@@ -152,7 +152,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
               <textarea
                 id="bio"
                 name="bio"
-                rows="3"><?= $profile['bio'] ?></textarea>
+                rows="3"><?= htmlspecialchars($profile['bio'] ?? '') ?></textarea>
 
             </div>
 
@@ -166,6 +166,7 @@ $pageSubtitle = "Kelola data akun dan profil Anda";
 
               <button
                 type="submit"
+                name="update"
                 class="btn btn-primary">
                 Simpan Perubahan
               </button>
