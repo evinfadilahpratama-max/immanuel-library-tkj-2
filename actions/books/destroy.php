@@ -1,11 +1,8 @@
 <?php
+if (isset($_GET['id']) && $_SERVER['REQUEST_METHOD'] === "GET") {
+    $id = $_GET['id'];
 
-$id = isset($_GET["id"]) ? $_GET["id"] : "";
+    echo "Buku dengan id " . htmlspecialchars($id) . " berhasil dihapus.";
+}
 
-echo "<h1>Data Buku</h1>";
-
-echo "<p>ID buku yang akan dihapus: " . $id . "</p>";
-
-echo "<p>Simulasi penghapusan berhasil.</p>";
-
-echo "<a href='../../pages/books/index.php'>Kembali</a>";
+?>

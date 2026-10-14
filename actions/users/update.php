@@ -1,32 +1,11 @@
 <?php
+if (isset($_POST['update']) && $_SERVER['REQUEST_METHOD'] === "POST") {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $role = $_POST['role'];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update"])) {
-
-    $id = isset($_POST["id"]) ? $_POST["id"] : "";
-    $name = isset($_POST["name"]) ? $_POST["name"] : "";
-    $email = isset($_POST["email"]) ? $_POST["email"] : "";
-    $password = isset($_POST["password"]) ? $_POST["password"] : "";
-    $role = isset($_POST["role"]) ? $_POST["role"] : "";
-
-    echo "<h1>Data Pengguna Diterima</h1>";
-
-    echo "<pre>";
-
-    print_r([
-        "id" => $id,
-        "name" => $name,
-        "email" => $email,
-        "password" => $password,
-        "role" => $role
-    ]);
-
-    echo "</pre>";
-
-    echo '<br><a href="../../pages/users/index.php">Kembali</a>';
-
-} else {
-
-    echo "<h1>Permintaan tidak valid.</h1>";
-
-    echo '<br><a href="../../pages/users/edit.php">Kembali</a>';
+    print_r($_POST);
 }
+
+?>

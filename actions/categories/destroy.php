@@ -1,13 +1,8 @@
 <?php
+if (isset($_GET['id']) && $_SERVER['REQUEST_METHOD'] === "GET") {
+    $id = $_GET['id'];
 
-if (isset($_GET["id"])) {
-
-    $id = $_GET["id"];
-
-    echo "Kategori dengan ID " . $id . " berhasil dihapus.";
+    echo "Kategori dengan id " . htmlspecialchars($id) . " berhasil dihapus.";
 }
 
 ?>
-
-<br><br>
-<a href="../../pages/categories/index.php" class="btn btn-primary">Kembali</a>

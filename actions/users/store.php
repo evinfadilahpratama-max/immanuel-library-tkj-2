@@ -1,30 +1,11 @@
 <?php
+if (isset($_POST['store']) && $_SERVER['REQUEST_METHOD'] === "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["store"])) {
-
-    $name = isset($_POST["name"]) ? $_POST["name"] : "";
-    $email = isset($_POST["email"]) ? $_POST["email"] : "";
-    $password = isset($_POST["password"]) ? $_POST["password"] : "";
-    $role = isset($_POST["role"]) ? $_POST["role"] : "";
-
-    echo "<h1>Data Pengguna Diterima</h1>";
-
-    echo "<pre>";
-
-    print_r([
-        "name" => $name,
-        "email" => $email,
-        "password" => $password,
-        "role" => $role
-    ]);
-
-    echo "</pre>";
-
-    echo '<br><a href="../../pages/users/create.php">Kembali</a>';
-
-} else {
-
-    echo "<h1>Permintaan tidak valid.</h1>";
-
-    echo '<br><a href="../../pages/users/create.php">Kembali</a>';
+    print_r($_POST);
 }
+
+?>

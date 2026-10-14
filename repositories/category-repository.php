@@ -2,44 +2,23 @@
 
 function getCategories()
 {
-    $categories = [
-        [
-            "id" => 1,
-            "name" => "Fiksi",
-            "description" => "Buku cerita dan karya imajinatif.",
-            "total_books" => 12
-        ],
-        [
-            "id" => 2,
-            "name" => "Non-Fiksi",
-            "description" => "Buku berdasarkan fakta dan informasi nyata.",
-            "total_books" => 8
-        ],
-        [
-            "id" => 3,
-            "name" => "Teknologi",
-            "description" => "Buku tentang teknologi dan komputer.",
-            "total_books" => 15
-        ],
-        [
-            "id" => 4,
-            "name" => "Sejarah",
-            "description" => "Buku tentang peristiwa sejarah.",
-            "total_books" => 5
-        ]
-    ];
+  $categories = [
+    ["id" => 1, "name" => "Fiksi",     "description" => "Novel dan cerita rekaan",        "total_books" => 3],
+    ["id" => 2, "name" => "Sains",     "description" => "Buku ilmu pengetahuan alam",      "total_books" => 0],
+    ["id" => 3, "name" => "Sejarah",   "description" => "Buku sejarah dan biografi",       "total_books" => 1],
+    ["id" => 4, "name" => "Teknologi", "description" => "Buku pemrograman dan teknologi",  "total_books" => 0],
+  ];
 
-    return $categories;
+  return $categories;
 }
 
 function getCategory()
 {
-    $category = [
-        "id" => 1,
-        "name" => "Fiksi",
-        "description" => "Buku cerita dan karya imajinatif.",
-        "total_books" => 12
-    ];
+  $category = [
+    "id"          => 1,
+    "name"        => "Fiksi",
+    "description" => "Novel dan cerita rekaan",
+  ];
 
-    return $category;
+  return $category;
 }

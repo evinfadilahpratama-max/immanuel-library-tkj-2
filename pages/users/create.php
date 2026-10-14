@@ -1,3 +1,8 @@
+<?php
+$pageTitle = "Tambah Pengguna";
+$pageSubtitle = "Buat akun pengguna baru beserta perannya";
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,23 +12,11 @@
   <link rel="stylesheet" href="../../styles/users/create.css">
 </head>
 <body>
-
-<?php
-$pageTitle = "Tambah Pengguna";
-$pageSubtitle = "Tambahkan pengguna baru";
-
-require_once '../../repositories/user-repository.php';
-
-$users = getUsers();
-?>
-
   <div class="app-shell">
- 
-  <?php include '../../components/admin/sidebar.php'; ?>
+  <?php require_once __DIR__ . "/../../components/admin/sidebar.php" ?>
 
     <main class="app-main">
-    
-    <?php include '../../components/admin/topbar.php'; ?>
+    <?php require_once __DIR__ . "/../../components/admin/topbar.php" ?>
 
       <div class="app-content">
         <form method="POST" action="../../actions/users/store.php">
@@ -55,12 +48,7 @@ $users = getUsers();
 
             <div class="form-actions">
               <a href="index.php" class="btn btn-outline">Batal</a>
-              <button
-                type="submit"
-                name="store"
-                class="btn btn-primary">
-                Simpan Pengguna
-              </button>
+              <button type="submit" name="store" class="btn btn-primary">Simpan Pengguna</button>
             </div>
           </div>
         </form>

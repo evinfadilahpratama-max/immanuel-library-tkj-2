@@ -1,3 +1,8 @@
+<?php
+$pageTitle = "Tambah Kategori";
+$pageSubtitle = "Buat kategori baru untuk mengelompokkan buku";
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,18 +12,11 @@
   <link rel="stylesheet" href="../../styles/categories/create.css">
 </head>
 <body>
-
-<?php
-$pageTitle = "Tambah Kategori";
-$pageSubtitle = "Tambahkan kategori buku baru";
-?>
   <div class="app-shell">
-  
-  <?php include '../../components/admin/sidebar.php'; ?>
-  
+  <?php require_once __DIR__ . "/../../components/admin/sidebar.php" ?>
+
     <main class="app-main">
-    
-    <?php include '../../components/admin/topbar.php'; ?>
+    <?php require_once __DIR__ . "/../../components/admin/topbar.php" ?>
 
       <div class="app-content">
         <form method="POST" action="../../actions/categories/store.php">
@@ -26,7 +24,7 @@ $pageSubtitle = "Tambahkan kategori buku baru";
             <div class="form-section-title">Data Kategori</div>
             <div class="form-group">
               <label for="name">Nama Kategori</label>
-              <input type="text" id="name" name="name" placeholder="Contoh: Fiksi" required>
+              <input type="text" id="name" name="name" placeholder="Contoh: Fiksi">
             </div>
             <div class="form-group">
               <label for="description">Deskripsi</label>
@@ -35,12 +33,7 @@ $pageSubtitle = "Tambahkan kategori buku baru";
 
             <div class="form-actions">
               <a href="index.php" class="btn btn-outline">Batal</a>
-              <button
-                type="submit"
-                name="store"
-                class="btn btn-primary">
-                Simpan Kategori
-              </button>
+              <button type="submit" name="store" class="btn btn-primary">Simpan Kategori</button>
             </div>
           </div>
         </form>

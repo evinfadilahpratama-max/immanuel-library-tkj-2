@@ -1,26 +1,9 @@
 <?php
+if (isset($_POST['store']) && $_SERVER['REQUEST_METHOD'] === "POST") {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["store"])) {
-
-    $name = isset($_POST["name"]) ? $_POST["name"] : "";
-    $description = isset($_POST["description"]) ? $_POST["description"] : "";
-
-    echo "<h1>Data Kategori Diterima</h1>";
-
-    echo "<pre>";
-
-    print_r([
-        "name" => $name,
-        "description" => $description
-    ]);
-
-    echo "</pre>";
-
-    echo '<br><a href="../../pages/categories/create.php">Kembali</a>';
-
-} else {
-
-    echo "<h1>Permintaan tidak valid.</h1>";
-
-    echo '<br><a href="../../pages/categories/create.php">Kembali</a>';
+    print_r($_POST);
 }
+
+?>
