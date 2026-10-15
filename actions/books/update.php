@@ -1,7 +1,7 @@
-```php
 <?php
 
 require_once __DIR__ . "/../../config/database.php";
+
 
 if (isset($_POST['update']) && $_SERVER['REQUEST_METHOD'] === "POST") {
     try {
