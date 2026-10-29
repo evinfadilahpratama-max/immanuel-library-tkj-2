@@ -4,7 +4,7 @@ requireAuth();
 require_once __DIR__ . "/../../repositories/book-repository.php";
 require_once __DIR__ . "/../../repositories/category-repository.php";
 
-$perPage = 3;
+$perPage = 5;
 $currentPage = max(1, $_GET['page'] ?? 1);
 
 $search = trim($_GET['search'] ?? "");
