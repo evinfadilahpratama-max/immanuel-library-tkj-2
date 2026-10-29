@@ -31,7 +31,6 @@ function hasRole(array $roles)
     return $user !== null && in_array($user['role'], $roles, true);
 }
 
-// Hanya user yang sudah login yang boleh masuk.
 function requireAuth()
 {
     if (!isLoggedIn()) {
@@ -42,7 +41,6 @@ function requireAuth()
     }
 }
 
-// Hanya user yang sudah login DAN memiliki salah satu role yang diizinkan.
 function requireRole(array $roles)
 {
     requireAuth();
@@ -53,7 +51,6 @@ function requireRole(array $roles)
     }
 }
 
-// Halaman khusus tamu (login/register): user yang sudah login diarahkan ke beranda.
 function requireGuest()
 {
     if (isLoggedIn()) {

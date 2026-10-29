@@ -5,12 +5,7 @@ function getCategories()
 {
   global $pdo;
 
-  $query = "select categories.*,
-            (select count(*) from books
-            where books.category_id = categories.id)
-            as total_books
-            from categories";
-
+  $query = "select * from categories";
   $stmt = $pdo->prepare($query);
   $stmt->execute();
 
@@ -25,7 +20,6 @@ function getCategory()
     "id" => 1,
     "name" => "Fiksi",
     "description" => "Novel dan cerita rekaan",
-    "total_books" => 0,
   ];
 
   return $category;

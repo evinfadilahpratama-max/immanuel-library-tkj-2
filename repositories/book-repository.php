@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
 
-function countBooks($search, $categoryId, $currentPage, $perPage)
+function countBooks($search, $categoryId)
 {
   global $pdo;
 

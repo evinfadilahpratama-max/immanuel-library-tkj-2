@@ -4,20 +4,19 @@ requireAuth();
 require_once __DIR__ . "/../../repositories/book-repository.php";
 require_once __DIR__ . "/../../repositories/category-repository.php";
 
-$perPage = 5;
-$currentPage = max(1, $_GET['page'] ?? 1);
+$perPage = 10;
 
 $search = trim($_GET['search'] ?? "");
 $categoryId = $_GET['category'] ?? "";
 if (!ctype_digit((string) $categoryId)) {
   $categoryId = "";
 }
-
 $page = max(1, (int) ($_GET['page'] ?? 1));
 
 $categories = getCategories();
 $books = getBooks($search, $categoryId, $page, $perPage);
 
+$totalPages = ceil(countBooks($search, $categoryId) / $perPage);
 
 $pageTitle = "Manajemen Buku";
 $pageSubtitle = "Kelola data buku, kategori, dan penulis";
@@ -121,7 +120,7 @@ $pageSubtitle = "Kelola data buku, kategori, dan penulis";
             <span class="pagination-btn is-disabled">&lt;</span>
           <?php endif ?>
 
-          <?php if ($page): ?>
+          <?php if ($page < $totalPages): ?>
             <a href="?<?= http_build_query(['search' => $search, 'category' => $categoryId, 'page' => $page + 1]) ?>"
               class="pagination-btn">&gt;</a>
           <?php else: ?>

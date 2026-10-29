@@ -1,11 +1,16 @@
 <?php
+require_once __DIR__ . "/../../middleware/auth.php";
+requireAuth();
 require_once __DIR__ . "/../../repositories/book-repository.php";
 
-$book = getBook();
+$id = $_GET['id'] ?? 0;
+
+$book = getBook($id);
 
 $pageTitle = "Detail Buku";
 $pageSubtitle = "Informasi lengkap buku beserta kategori dan penulis";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
